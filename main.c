@@ -1,21 +1,21 @@
 #include "shell.h"
 
 /**
- * main - entry point
- * @ac: arg count
- * @av: arg vector
+ * main - entry
+ * @ac: count
+ * @av: vector
  *
- * Return: 0 on success, 1 on error
+ * Return: 0, 1
  */
 int main(int ac, char **av)
 {
-	info_t info[] = { INFO_INIT };
+	info_t info[] = {INFO_INIT};
 	int fd = 2;
 
-	asm ("mov %1, %0\n\t"
-		"add $3, %0"
-		: "=r" (fd)
-		: "r" (fd));
+	asm("mov %1, %0\n\t"
+	    "add $3, %0"
+	    : "=r"(fd)
+	    : "r"(fd));
 
 	if (ac == 2)
 	{
