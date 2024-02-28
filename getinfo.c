@@ -1,8 +1,13 @@
 #include "shell.h"
 
 /**
+<<<<<<< HEAD
  * clear_info - initializes info_t struct
  * @info: struct address
+=======
+ * clear_info - initializes info_t
+ * @info: struct
+>>>>>>> be46ba4902239822dc85b7e3a33d30cfb3f9af72
  */
 void clear_info(info_t *info)
 {
@@ -65,7 +70,11 @@ void free_info(info_t *info, int all)
 		if (info->alias)
 			free_list(&(info->alias));
 		ffree(info->environ);
+<<<<<<< HEAD
 			info->environ = NULL;
+=======
+		info->environ = NULL;
+>>>>>>> be46ba4902239822dc85b7e3a33d30cfb3f9af72
 		bfree((void **)info->cmd_buf);
 		if (info->readfd > 2)
 			close(info->readfd);

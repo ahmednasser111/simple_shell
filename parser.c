@@ -9,6 +9,7 @@
  */
 int is_cmd(info_t *info, char *path)
 {
+<<<<<<< HEAD
 	struct stat st;
 
 	(void)info;
@@ -19,6 +20,16 @@ int is_cmd(info_t *info, char *path)
 	{
 		return (1);
 	}
+=======
+	struct stat stt;
+
+	(void)info;
+	if (!path || stat(path, &stt))
+		return (0);
+
+	if (stt.st_mode & S_IFREG)
+		return (1);
+>>>>>>> be46ba4902239822dc85b7e3a33d30cfb3f9af72
 	return (0);
 }
 
