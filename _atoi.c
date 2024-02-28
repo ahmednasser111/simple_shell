@@ -1,42 +1,41 @@
 #include "shell.h"
 
 /**
- * interactive - returns true if shell is interactive mode
- * @info: struct address
+ * interactive - is shell interactive mode
+ * @i: struct address
  *
- * Return: 1 if interactive mode, 0 otherwise
+ * Return: true if interactive mode, else false
  */
-int interactive(info_t *info)
+int interactive(info_t *i)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	return (isatty(STDIN_FILENO) && i->readfd <= 2);
 }
 
 /**
- * is_delim - checks if character is a delimeter
- * @c: the char to check
- * @delim: the delimeter string
+ * is_delim - character is a delimeter
+ * @ch: char
+ * @de: delimeter
  * Return: 1 if true, 0 if false
  */
-int is_delim(char c, char *delim)
+int is_delim(char ch, char *de)
 {
-	while (*delim)
-		if (*delim++ == c)
+	while (*de)
+		if (*de++ == ch)
 			return (1);
 	return (0);
 }
 
 /**
- *_isalpha - checks for alphabetic character
- *@c: The character to input
- *Return: 1 if c is alphabetic, 0 otherwise
+ *_isalpha - alphabetic character
+ *@ch: The character to input
+ *Return: if c is alphabetic
  */
 
-int _isalpha(int c)
+int _isalpha(int ch)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 /**
@@ -50,7 +49,7 @@ int _atoi(char *s)
 	int i, sign = 1, flag = 0, output;
 	unsigned int result = 0;
 
-	for (i = 0;  s[i] != '\0' && flag != 2; i++)
+	for (i = 0; s[i] != '\0' && flag != 2; i++)
 	{
 		if (s[i] == '-')
 			sign *= -1;
@@ -72,4 +71,3 @@ int _atoi(char *s)
 
 	return (output);
 }
-
