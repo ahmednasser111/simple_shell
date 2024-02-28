@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- **_strncpy - copies a string
+ **_strncpy - copy string
  *@dest: the destination string to be copied to
  *@src: the source string
  *@n: the amount of characters to be copied
@@ -65,7 +65,8 @@ char *_strncat(char *dest, char *src, int n)
  */
 char *_strchr(char *s, char c)
 {
-	do {
+	do
+	{
 		if (*s == c)
 			return (s);
 	} while (*s++ != '\0');
